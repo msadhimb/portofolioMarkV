@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logoNavbarDark from "../../assets/img/logo/logo-navbar-dark.png";
 import { Navbar } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const Navbars = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -55,9 +56,11 @@ const Navbars = () => {
           <Navbar.Collapse
             className={navbarOpen ? `block my-4 rounded-b-lg` : "hidden"}
           >
-            <Navbar.Link as="a" href="#" className="text-white">
-              <p>Experience</p>
-            </Navbar.Link>
+            <Link to="/experience">
+              <Navbar.Link as="a" href="#" className="text-white">
+                <p>Experience</p>
+              </Navbar.Link>
+            </Link>
             <Navbar.Link href="#" className="text-white">
               <p>Projects</p>
             </Navbar.Link>
