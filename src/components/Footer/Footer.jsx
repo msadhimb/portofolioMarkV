@@ -6,7 +6,7 @@ import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 const Footers = () => {
   return (
-    <Footer container className="bg-gray-900 rounded-none">
+    <Footer container className="bg-gray-900 rounded-none z-50 relative">
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>

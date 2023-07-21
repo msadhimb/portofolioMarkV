@@ -1,34 +1,45 @@
-import React, { useRef } from "react";
-import { Planet } from "react-planet";
+import React, { useState } from "react";
+import Planet from "./Planet";
+import abbauf from "../../assets/img/experience/company-logo/abbauf.png";
+import graphie from "../../assets/img/experience/company-logo/graphie.png";
+import udinus from "../../assets/img/experience/company-logo/udinus.png";
+import senatMahasiswa from "../../assets/img/experience/company-logo/senatMahasiswa.png";
+import len from "../../assets/img/experience/company-logo/len.png";
 
-export default function MyPlanet() {
-  const PLANET_SIZE = 100;
-  const SATELLITE_SIZE = PLANET_SIZE / 2;
-  const centerRef = useRef(null);
-
-  const mockSubPlanets = Array.from({ length: 4 }).map((e, index) => ({
-    id: Date.now() * Math.random(),
-    name: `subplanet-${index}`,
-  }));
-
+const Experience = () => {
   return (
-    <div className="z-50">
+    <section className="h-[50rem] mx-auto relative z-40">
+      <h1 className="text-center text-5xl text-white">Planetary Experience</h1>
       <Planet
-        open
-        autoClose={false}
-        orbitRadius={260}
-        centerContent={
-          <div
-            ref={centerRef}
-            style={{
-              width: "4px",
-              height: "4px",
-              textAlign: "center",
-              backgroundColor: "white",
-            }}
-          ></div>
-        }
-      ></Planet>
-    </div>
+        subPlanet={[
+          {
+            name: "Abbauf",
+            image: abbauf,
+          },
+          {
+            name: "Abbauf",
+            image: graphie,
+          },
+        ]}
+        secOrbit={[
+          {
+            name: "Universitas Dian Nuswantoro",
+            image: udinus,
+          },
+          {
+            name: "Senat Mahasiswa FEB UKSW",
+            image: senatMahasiswa,
+            className: "pt-[0.9rem]",
+          },
+          {
+            name: "PT. Len Industri",
+            image: len,
+            className: "pt-[0.9rem]",
+          },
+        ]}
+      />
+    </section>
   );
-}
+};
+
+export default Experience;

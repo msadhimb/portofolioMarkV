@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import logoNavbarDark from "../../assets/img/logo/logo-navbar-dark.png";
 import { Navbar } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbars = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [onScroll, setOnScroll] = useState(false);
+  const [urlSection, setUrlSection] = useState("");
+  const url = useLocation();
+
+  useEffect(() => {
+    setUrlSection(url.pathname.split("/")[1]);
+  }, [url]);
 
   useEffect(() => {
     const changeBackground = () => {
@@ -56,10 +62,25 @@ const Navbars = () => {
           <Navbar.Collapse
             className={navbarOpen ? `block my-4 rounded-b-lg` : "hidden"}
           >
-            <Link to="/experience">
-              <Navbar.Link as="a" href="#" className="text-white">
-                <p>Experience</p>
-              </Navbar.Link>
+            <Link
+              to="/"
+              className={
+                urlSection === ""
+                  ? "text-orange-400"
+                  : "text-white hover:text-orange-400"
+              }
+            >
+              <p>Home</p>
+            </Link>
+            <Link
+              to="/experience"
+              className={
+                urlSection === "experience"
+                  ? "text-orange-400"
+                  : "text-white hover:text-orange-400"
+              }
+            >
+              <p>Experience</p>
             </Link>
             <Navbar.Link href="#" className="text-white">
               <p>Projects</p>

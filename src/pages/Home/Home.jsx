@@ -35,21 +35,19 @@ const Home = () => {
     <React.Fragment>
       <section id="profile">
         <main className="grid grid-flow-row md:grid-flow-col 2xl:mx-[5rem]">
-          <article className="xl:w-[45rem] flex flex-col xl:mr-[5rem] mb-5 xl:mb-0 xl:row-start-2">
-            <div className="flex items-end justify-between pb-1">
+          <article className="xl:w-[45rem] flex flex-col xl:mr-[5rem] mb-5 xl:mb-0 xl:row-start-2 z-40">
+            <div className="flex items-end justify-between pb-1 ">
               <h1 className="text-3xl md:text-5xl text-white">
                 Muhamad Salman Adhim Baqy
               </h1>
               <motion.div
                 whileHover={{
                   scale: 1.5,
-                  rotate: 360,
+                  rotate: [0, 45, -45, 0],
                 }}
                 transition={{
-                  duration: 5,
                   type: "spring",
                   stiffness: 260,
-                  damping: 20,
                 }}
               >
                 <img
@@ -173,16 +171,16 @@ const Home = () => {
           </figure>
         </main>
       </section>
-      <section id="skill">
+      <section id="skill" className="relative z-50">
         <main className="py-[3rem] font-ubuntu font-thin">
           <h2 className="text-white text-center md:text-3xl text-xl">
             Have experience with
           </h2>
-          <div className="grid xl:grid-cols-5 grid-cols-3 place-content-center gap-4 my-[2.5rem]">
+          <div className="grid xl:grid-cols-5 grid-cols-3 place-content-center gap-4 my-[2.5rem] z-50">
             <Icon
               element={<FaHtml5 />}
               className={
-                "flex justify-center hover:text-[#f59e42] md:text-[100px] text-[80px]"
+                "flex justify-center hover:text-[#f59e42] md:text-[100px] text-[80px] z-50"
               }
             />
             <Icon
