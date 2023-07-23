@@ -46,10 +46,6 @@ const Space = () => {
     interactivity: {
       detectsOn: "window",
       events: {
-        onClick: {
-          enable: true,
-          mode: "repulse",
-        },
         onDiv: {
           selectors: [],
           enable: false,

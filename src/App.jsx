@@ -1,21 +1,35 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useLocation,
+  useRoutes,
+} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Template from "./pages/Template/Template";
 import Experience from "./pages/Experience/Experience";
-import Space from "./components/Space/Space";
+import ExperienceDetail from "./pages/Experience/ExperienceDetail";
+import { AnimatePresence } from "framer-motion";
+import { cloneElement } from "react";
 
 function App() {
+  const element = useRoutes([
+    {
+      path: "/",
+      element: <Template />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/experience", element: <Experience /> },
+        { path: "/experience/:id", element: <ExperienceDetail /> },
+      ],
+    },
+  ]);
+  const location = useLocation();
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Template />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/experience" element={<Experience />} />
-          </Route>
-          <Route path="/projects" element={<Space />} />
-        </Routes>
-      </BrowserRouter>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        {cloneElement(element, { key: location })}
+      </AnimatePresence>
     </>
   );
 }
